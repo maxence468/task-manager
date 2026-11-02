@@ -1,0 +1,8 @@
+<h1>Detail de la tache numero z</h1>
+
+<label for="nom">nom de la tache : </label>
+<input id="nom" [ngModel]="nameTask()" (ngModelChange)="nameTask.set($event)">
+
+<button (click)="permuterEtat()">{{task.completed == true ? 'Tache complété' : 'Tache en cours'}}</button>
+
+<button (click)="modifierTask()">Modifier les valeurs</button>

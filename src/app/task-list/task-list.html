@@ -1,0 +1,25 @@
+<input [ngModel]="nameNewTask()" (ngModelChange)="nameNewTask.set($event)">
+<button (click)="addTask()">Ajouter</button>
+
+@for (task of tasks; track task; let i = $index) {
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Etat (cliquer pour changer)</th>
+            <th>Suppr</th>
+            <th>Voir détail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>{{task.name}}</th>
+            <th><button (click)="permuterEtat(i)">{{task.completed == true ? 'Tache terminée' : 'Tache en cours'}}</button></th>
+            <th><button (click)="deleteTask(i)">Supprimer</button></th>
+            <th><a [routerLink]="['/task', i]">:D</a></th>
+        </tr>
+    </tbody>
+</table>
+
+}
+
