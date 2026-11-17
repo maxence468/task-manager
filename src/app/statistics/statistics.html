@@ -1,0 +1,36 @@
+<div id="divBtn">
+    <button (click)="changerGraphique('taches-etat')">
+        Tâches terminées
+    </button>
+
+    <button (click)="changerGraphique('priorite')">
+        Tâches par priorité
+    </button>
+
+    <button (click)="changerGraphique('date-creation')">
+        Tâches par date de création
+    </button>
+</div>
+<div class="chart-container">
+
+    @if (graphiqueActuel === 'taches-etat') {
+    <ngx-charts-pie-chart [gradient]="gradient" [results]="piechartData" [legend]="showLegend" [labels]="showLabels"
+        [legendPosition]="legendPosition">
+    </ngx-charts-pie-chart>
+    }
+
+    @else if (graphiqueActuel === 'priorite') {
+    <ngx-charts-bar-vertical [results]="chartbarData" [legend]="showLegendchartBar" [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [xAxis]="showXAxis"
+        [yAxis]="showYAxis">
+
+    </ngx-charts-bar-vertical>
+    }
+    @else if (graphiqueActuel === 'date-creation') {
+    <ngx-charts-line-chart [results]="chartlineData" [legend]="legend" [animations]="animations" [xAxis]="xAxis"
+        [yAxis]="yAxis" [showYAxisLabel]="showYAxisLabelCL" [showXAxisLabel]="showXAxisLabelCL"
+        [xAxisLabel]="xAxisLabelCL" [yAxisLabel]="yAxisLabelCL" [timeline]="timeline">
+    </ngx-charts-line-chart>
+    }
+
+</div>

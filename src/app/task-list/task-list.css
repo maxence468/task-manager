@@ -1,0 +1,44 @@
+#mainTaskList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#tableTask{
+    width: 90%;
+}
+#formCreation {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+#priorite, #nomTache{
+    width: 100%;
+}

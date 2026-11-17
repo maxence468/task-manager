@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+}
+#navBar{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    box-sizing: border-box;
+    border-bottom: solid 1px black;
+}
+
+.routerLink{
+    text-decoration: none;
+    color: white;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.green{
+    color: green;
+}

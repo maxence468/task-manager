@@ -1,0 +1,15 @@
+#taskDetailMain{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#etatTache{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#btnEtat{
+    height: 30px;
+}

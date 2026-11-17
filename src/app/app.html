@@ -181,10 +181,14 @@
     }
   }
 </style>
-<a routerLink="/">Accueil</a>
-<a routerLink="/tasks">Tâches</a>
-<router-outlet></router-outlet>
-
+<div id="navBar">
+  <a class="routerLink" routerLink="/">Accueil</a>
+  <a class="routerLink" routerLink="/tasks">Tâches</a>
+  <a class="routerLink" routerLink="/statistics">Statistics</a>
+</div>
+<div id="main">
+  <router-outlet></router-outlet>
+</div>
 <!-- <main class="main">
   <div class="content">
   </div>

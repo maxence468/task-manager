@@ -1,25 +1,53 @@
-<input [ngModel]="nameNewTask()" (ngModelChange)="nameNewTask.set($event)">
-<button (click)="addTask()">Ajouter</button>
+<div id="mainTaskList">
+    <div id="formCreation">
+        <div id="divnomTache">
+            <label for="nomTache">Nom de la tache</label>
+            <input id="nomTache" [ngModel]="nameNewTask()" (ngModelChange)="nameNewTask.set($event)">
+        </div>
+        <div id="divpriorite">
+            <label for="priorite">Priorité :</label>
+            <select id="priorite" name="priorite" #priorite (change)="recupererPriorite(priorite.value)"
+                [value]="this.priorite">
+                <option value="">-- Priorité --</option>
+                <option value="Faible">Faible</option>
+                <option value="Moyenne">Moyenne</option>
+                <option value="Élevée">Élevée</option>
+                <option value="Critique">Critique</option>
+            </select>
+        </div>
+        <button (click)="addTask()">Ajouter</button>
+        @if (created) {
+            <p class="green">Tache {{nomTacheCree}} créée avec succès !!</p>
+        }
+    </div>
+    <div id="tableTask">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Etat (cliquer pour changer)</th>
+                    <th>Priorité</th>
+                    <th>Date de création</th>
+                    <th>Suppr</th>
+                    <th>Voir détail</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (task of tasks; track task; let i = $index) {
 
-@for (task of tasks; track task; let i = $index) {
-<table>
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Etat (cliquer pour changer)</th>
-            <th>Suppr</th>
-            <th>Voir détail</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>{{task.name}}</th>
-            <th><button (click)="permuterEtat(i)">{{task.completed == true ? 'Tache terminée' : 'Tache en cours'}}</button></th>
-            <th><button (click)="deleteTask(i)">Supprimer</button></th>
-            <th><a [routerLink]="['/task', i]">:D</a></th>
-        </tr>
-    </tbody>
-</table>
+                <tr>
+                    <td>{{task.name}}</td>
+                    <td><button (click)="permuterEtat(i)">{{task.completed == true ? 'Tache terminée' : 'Tache en
+                            cours'}}</button></td>
+                    <td>{{task.priorite}}</td>
+                    <td>{{task.createdAt | date:'dd/MM/yyyy à HH:mm' }}</td>
+                    <td><button (click)="deleteTask(i)">Supprimer</button></td>
+                    <td><a [routerLink]="['/task', i]">o</a></td>
+                </tr>
 
-}
 
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
